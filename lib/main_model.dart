@@ -4,15 +4,8 @@ import 'package:flutter/material.dart';
 import 'todo.dart';
 
 class MainModel extends ChangeNotifier {
+  String newTodoText = '';
   List<Todo> todoList = [];
-  Future getTodoList() async {
-    final snapshot =
-        await FirebaseFirestore.instance.collection('todoList').get();
-    final docs = snapshot.docs;
-    final todoList = docs.map((doc) => Todo(doc)).toList();
-    this.todoList = todoList;
-    notifyListeners();
-  }
 
   void getTodoListRealTime() {
     final snapshots =
@@ -28,5 +21,38 @@ class MainModel extends ChangeNotifier {
         notifyListeners();
       },
     );
+  }
+
+  Future add() async {
+    final todoCollection = FirebaseFirestore.instance.collection('todoList');
+    await todoCollection.add(
+      {
+        'title': newTodoText,
+        'createdAt': Timestamp.now(),
+      },
+    );
+  }
+
+  void reload() {
+    notifyListeners();
+  }
+
+  Future deleteCheckedItems() async {
+    final checkedItems = todoList.where((todo) => todo.isDone).toList();
+    final references =
+        checkedItems.map((todo) => todo.documentReference).toList();
+
+    final batch = FirebaseFirestore.instance.batch();
+    references.forEach(
+      (reference) {
+        batch.delete(reference);
+      },
+    );
+    return batch.commit();
+  }
+
+  bool checkedItemsActiveButton() {
+    final checkedItems = todoList.where((todo) => todo.isDone).toList();
+    return checkedItems.length > 0;
   }
 }
