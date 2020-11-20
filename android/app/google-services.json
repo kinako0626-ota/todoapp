@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "641205118113",
+    "firebase_url": "https://streamtodo-7a00b.firebaseio.com",
+    "project_id": "streamtodo-7a00b",
+    "storage_bucket": "streamtodo-7a00b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641205118113:android:bde3e5deb6b2c0c014bce0",
+        "android_client_info": {
+          "package_name": "com.example.flutterstream_todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641205118113-2ecspiaocertkngpdb1cej0io95vjp5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7y0nYkD_SscBtXtWGQI9lGiR5m_8ihXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641205118113-2ecspiaocertkngpdb1cej0io95vjp5n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "641205118113-9q9li3634kqhfct589svarm5dm3cos86.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterstreamTodo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
