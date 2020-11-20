@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return ChangeNotifierProvider<MainModel>(
-      create: (_) => MainModel()..getTodoList(),
+      create: (_) => MainModel()..getTodoListRealTime(),
       child: Scaffold(
         appBar: AppBar(
           title: Text('TODO'),
